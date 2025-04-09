@@ -1,0 +1,881 @@
+//QUESTRION 21
+#include <iostream>
+
+int main() {
+    int intValue = 42;
+    double doubleValue;
+
+    // Convert int to double using static_cast
+    doubleValue = static_cast<double>(intValue);
+    std::cout << "Integer: " << intValue << ", Converted to Double: " << doubleValue << std::endl;
+
+    double anotherDouble = 3.14159;
+    int convertedInt;
+
+    // Convert double to int using static_cast
+    convertedInt = static_cast<int>(anotherDouble);
+    std::cout << "Double: " << anotherDouble << ", Converted to Integer: " << convertedInt << std::endl;
+
+    return 0;
+}
+//QUESTION 22
+#include <iostream>
+#include <typeinfo>
+
+class Base {
+public:
+    virtual void show() { std::cout << "Base class" << std::endl; }
+    virtual ~Base() {}  // Ensures proper polymorphic behavior
+};
+
+class Derived : public Base {
+public:
+    void show() override { std::cout << "Derived class" << std::endl; }
+    void derivedFunction() { std::cout << "Function specific to Derived class" << std::endl; }
+};
+
+int main() {
+    Base* basePtr = new Derived();  // Base class pointer pointing to Derived object
+    
+    // Safe downcasting using dynamic_cast
+    Derived* derivedPtr = dynamic_cast<Derived*>(basePtr);
+    
+    if (derivedPtr) {
+        derivedPtr->show();
+        derivedPtr->derivedFunction();
+    } else {
+        std::cout << "Failed to cast Base* to Derived*" << std::endl;
+    }
+
+    delete basePtr;  // Avoid memory leak
+    return 0;
+}
+//QUESTION 23
+#include <iostream>
+
+void modifyConstant(const int* ptr) {
+    int* modifiablePtr = const_cast<int*>(ptr); // Removing const qualifier
+    *modifiablePtr = 100; // Modifying the value
+}
+
+int main() {
+    const int num = 50;
+    std::cout << "Original constant value: " << num << std::endl;
+
+    modifyConstant(&num); // Attempt to modify constant value
+    
+    std::cout << "Modified value: " << num << " (Undefined behavior if modified directly)" << std::endl;
+
+    return 0;
+}
+//QUESTION 24
+#include <iostream>
+
+int main() {
+    int num = 65;  // ASCII value for 'A'
+    char* charPtr = reinterpret_cast<char*>(&num);
+
+    std::cout << "Integer value: " << num << std::endl;
+    std::cout << "Reinterpreted as char: " << *charPtr << std::endl;
+
+    return 0;
+}
+//QUESTION 25
+25.	rite a C++ program to demonstrate the use of C-style casting by converting an int to a double.
+//QUESTION 26
+#include <iostream>
+
+int main() {
+    // Using a for loop to print numbers from 1 to 10
+    for (int i = 1; i <= 10; ++i) {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;  // Print a newline after the loop
+    return 0;
+}
+//QUESTION 26
+#include <iostream>
+
+int main() {
+    int sum = 0, num = 1;
+
+    // Using a while loop to calculate the sum
+    while (num <= 50) {
+        sum += num;  // Add the current number to sum
+        num++;       // Increment the number
+    }
+
+    std::cout << "Sum of the first 50 natural numbers: " << sum << std::endl;
+
+    return 0;
+}
+//QUESTION 27
+#include <iostream>
+
+int main() {
+    int num, i = 1;
+
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    // Using a do-while loop to print the multiplication table
+    std::cout << "Multiplication table of " << num << ":" << std::endl;
+    do {
+        std::cout << num << " x " << i << " = " << num * i << std::endl;
+        i++;
+    } while (i <= 10);  // Loop runs until i reaches 10
+
+    return 0;
+}
+//QUESTION 28
+#include <iostream>
+
+int main() {
+    int num;
+    unsigned long long factorial = 1;  // Using `unsigned long long` for large factorial values
+
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    // Handling negative input
+    if (num < 0) {
+        std::cout << "Factorial of a negative number doesn't exist." << std::endl;
+    } else {
+        // Using a for loop to calculate factorial
+        for (int i = 1; i <= num; ++i) {
+            factorial *= i;
+        }
+        std::cout << "Factorial of " << num << " is: " << factorial << std::endl;
+    }
+
+    return 0;
+}
+//QUESTIOIN 29
+#include <iostream>
+
+int main() {
+    int num, reversedNum = 0;
+
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    // Using a while loop to reverse the number
+    while (num != 0) {
+        int digit = num % 10; // Extract the last digit
+        reversedNum = reversedNum * 10 + digit; // Build the reversed number
+        num /= 10; // Remove the last digit from the original number
+    }
+
+    std::cout << "Reversed number: " << reversedNum << std::endl;
+
+    return 0;
+}
+//QUESTION 30
+#include <iostream>
+
+int main() {
+    int num;
+    bool isPrime = true;
+
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+
+    // Handling edge cases
+    if (num <= 1) {
+        isPrime = false;
+    } else {
+        // Using a for loop to check divisibility
+        for (int i = 2; i * i <= num; ++i) {
+            if (num % i == 0) {
+                isPrime = false;
+                break; // No need to check further if a divisor is found
+            }
+        }
+    }
+
+    // Output the result
+    if (isPrime) {
+        std::cout << num << " is a prime number." << std::endl;
+    } else {
+        std::cout << num << " is not a prime number." << std::endl;
+    }
+I'll provide the C++ code for each of the given problems.
+
+32. Fibonacci Series
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+    int t1 = 0, t2 = 1;
+    for (int i = 1; i <= n; i++) {
+        cout << t1 << " ";
+        int nextTerm = t1 + t2;
+        t1 = t2;
+        t2 = nextTerm;
+    }
+    return 0;
+}
+
+
+33. Count Digits
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, count = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    while (n != 0) {
+        n /= 10;
+        count++;
+    }
+    cout << "Number of digits: " << count << endl;
+    return 0;
+}
+
+
+34. Sum of Even Numbers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int sum = 0;
+    for (int i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+            sum += i;
+        }
+    }
+    cout << "Sum of even numbers: " << sum << endl;
+    return 0;
+}
+
+
+35. Largest Number in Array
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int max = arr[0];
+    for (int i = 1; i < 5; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    cout << "Largest number: " << max << endl;
+    return 0;
+}
+
+
+36. Reverse Array
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    for (int i = 4; i >= 0; i--) {
+        cout << arr[i] << " ";
+    }
+    return 0;
+}
+
+
+37. Average of Array
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int sum = 0;
+    for (int i = 0; i < 5; i++) {
+        sum += arr[i];
+    }
+    double avg = (double)sum / 5;
+    cout << "Average: " << avg << endl;
+    return 0;
+}
+
+
+38. GCD
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    cout << "GCD: " << a << endl;
+    return 0;
+}
+
+
+39. Prime Numbers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 100; i++) {
+        bool isPrime = true;
+        for (int j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && i > 1) {
+            cout << i << " ";
+        }
+    }
+    return 0;
+}
+
+
+40. Sum of Digits
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    while (n != 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    cout << "Sum of digits: " << sum << endl;
+    return 0;
+}
+
+
+41. Palindrome
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, rev = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    int temp = n;
+    while (n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    if (rev == temp) {
+        cout << "Palindrome" << endl;
+    } else {
+        cout << "Not a palindrome" << endl;
+    }
+    return
+
+
+    return 0;
+}
+Here are the C++ programs for each of the given problems:
+
+42. Smallest Number in Array
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int min = arr[0];
+    for (int i = 1; i < 5; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    cout << "Smallest number: " << min << endl;
+    return 0;
+}
+
+
+43. First N Even Numbers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cout << 2 * i << " ";
+    }
+    return 0;
+}
+
+
+44. Pattern Printing
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+45. FizzBuzz
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 100; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            cout << "FizzBuzz" << endl;
+        } else if (i % 3 == 0) {
+            cout << "Fizz" << endl;
+        } else if (i % 5 == 0) {
+            cout << "Buzz" << endl;
+        } else {
+            cout << i << endl;
+        }
+    }
+    return 0;
+}
+
+
+46. Sum of Digits
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    while (n != 0) {
+        sum += n % 10;
+        n /= 10;
+    }
+    cout << "Sum of digits: " << sum << endl;
+    return 0;
+}
+
+
+47. Reverse String
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    for (int i = str.length() - 1; i >= 0; i--) {
+        cout << str[i];
+    }
+    return 0;
+}
+
+
+48. Armstrong Number
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    int temp = n;
+    while (n != 0) {
+        int digit = n % 10;
+        sum += digit * digit * digit;
+        n /= 10;
+    }
+    if (sum == temp) {
+        cout << "Armstrong number" << endl;
+    } else {
+        cout << "Not an Armstrong number" << endl;
+    }
+    return 0;
+}
+
+
+49. Sum of Array Elements
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int sum = 0;
+    for (int i = 0; i < 5; i++) {
+        sum += arr[i];
+    }
+    cout << "Sum of array elements: " << sum << endl;
+    return 0;
+}
+
+
+50. Palindrome
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, rev = 0;
+    cout << "Enter a number: ";
+    cin >> n;
+    int temp = n;
+    while (n != 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+    if (rev == temp) {
+        cout << "Palindrome" << endl;
+    } else {
+        cout << "Not a palindrome" << endl;
+    }
+    return 0;
+}
+
+
+51. Sum of Even and Odd Numbers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int evenSum = 0, oddSum = 0;
+    for (int i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+            evenSum += i;
+        } else
+Here are the C++ programs for each of the given problems:
+
+52. Count Vowels and Consonants
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    int vowels = 0, consonants = 0;
+    for (int i = 0; i < str.length(); i++) {
+        char c = tolower(str[i]);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            vowels++;
+        } else if (c >= 'a' && c <= 'z') {
+            consonants++;
+        }
+    }
+    cout << "Vowels: " << vowels << endl;
+    cout << "Consonants: " << consonants << endl;
+    return 0;
+}
+
+
+53. Binary to Decimal
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int binary, decimal = 0, base = 1;
+    cout << "Enter a binary number: ";
+    cin >> binary;
+    while (binary != 0) {
+        int digit = binary % 10;
+        decimal += digit * base;
+        binary /= 10;
+        base *= 2;
+    }
+    cout << "Decimal: " << decimal << endl;
+    return 0;
+}
+
+
+54. Prime Numbers
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int start, end;
+    cout << "Enter the start and end values: ";
+    cin >> start >> end;
+    for (int i = start; i <= end; i++) {
+        bool isPrime = true;
+        for (int j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && i > 1) {
+            cout << i << " ";
+        }
+    }
+    return 0;
+}
+
+
+55. Matrix Transpose
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows, cols;
+    cout << "Enter the number of rows and columns: ";
+    cin >> rows >> cols;
+    int matrix[rows][cols], transpose[cols][rows];
+    cout << "Enter the matrix elements: ";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            transpose[j][i] = matrix[i][j];
+        }
+    }
+    cout << "Transpose: " << endl;
+    for (int i = 0; i < cols; i++) {
+        for (int j = 0; j < rows; j++) {
+            cout << transpose[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+56. Harmonic Series
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the value of n: ";
+    cin >> n;
+    double sum = 0.0;
+    for (int i = 1; i <= n; i++) {
+        sum += 1.0 / i;
+    }
+    cout << "Sum of harmonic series: " << sum << endl;
+    return 0;
+}
+
+
+57. Duplicate Elements
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int arr[5] = {1, 2, 3, 2, 4};
+    for (int i = 0; i < 5; i++) {
+        for (int j = i + 1; j < 5; j++) {
+            if (arr[i] == arr[j]) {
+                cout << "Duplicate element: " << arr[i] << endl;
+            }
+        }
+    }
+    return 0;
+}
+
+
+58. Pyramid Pattern
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= 5 - i; j++) {
+            cout << " ";
+        }
+        for (int k = 1; k <= i; k++) {
+            cout << "* ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+Here are the C++ programs for each of the given problems:
+
+59. LCM
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2, lcm, max;
+    cout << "Enter two numbers: ";
+    cin >> num1 >> num2;
+    max = (num1 > num2) ? num1 : num2;
+    while (true) {
+        if (max % num1 == 0 && max % num2 == 0) {
+            lcm = max;
+            break;
+        }
+        max++;
+    }
+    cout << "LCM: " << lcm << endl;
+    return 0;
+}
+
+
+60. Fibonacci Series
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, t1 = 0, t2 = 1;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+    for (int i = 1; i <= n; i++) {
+        cout << t1 << " ";
+        int nextTerm = t1 + t2;
+        t1 = t2;
+        t2 = nextTerm;
+    }
+    return 0;
+}
+
+
+61. Matrix Addition
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int rows, cols;
+    cout << "Enter the number of rows and columns: ";
+    cin >> rows >> cols;
+    int matrix1[rows][cols], matrix2[rows][cols], sum[rows][cols];
+    cout << "Enter the elements of matrix 1: ";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> matrix1[i][j];
+        }
+    }
+    cout << "Enter the elements of matrix 2: ";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cin >> matrix2[i][j];
+        }
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            sum[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+    cout << "Sum of matrices: " << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << sum[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+
+62. Number Guessing Game
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+    srand(time(0));
+    int numberToGuess = rand() % 100 + 1;
+    int guess;
+    cout << "Guess a number between 1 and 100: ";
+    while (true) {
+        cin >> guess;
+        if (guess < numberToGuess) {
+            cout << "Too low! Try again: ";
+        } else if (guess > numberToGuess) {
+            cout << "Too high! Try again: ";
+        } else {
+            cout << "Congratulations! You guessed the number." << endl;
+            break;
+        }
+    }
+    return 0;
+}
+
+
+63. Character Frequency
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    cin >> str;
+    int frequency[256] = {0};
+    for (int i = 0; i < str.length(); i++) {
+        frequency[str[i]]++;
+    }
+    for (int i = 0; i < 256; i++) {
+        if (frequency[i] > 0) {
+            cout << "Character: " << char(i) << ", Frequency: " << frequency[i] << endl;
+        }
+    }
+    return 0;
+}
+
+
+64. Decimal to Binary
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int decimal;
+    cout << "Enter a decimal number: ";
+    cin >> decimal;
+    string binary = "";
+    while (decimal > 0) {
+        binary = (decimal % 2 == 0 ? "0" : "1") + binary;
+        decimal /= 2;
+    }
+    cout << "Binary: " << binary << endl;
+    return 0;
+}
+
+
+
