@@ -1,0 +1,1776 @@
+Here are the C++ programs for each of the given problems:
+
+54. Person Class
+
+#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    string name;
+    int age;
+public:
+    void setName(string n) {
+        name = n;
+    }
+    void setAge(int a) {
+        age = a;
+    }
+    string getName() {
+        return name;
+    }
+    int getAge() {
+        return age;
+    }
+};
+
+int main() {
+    Person p;
+    p.setName("John");
+    p.setAge(30);
+    cout << "Name: " << p.getName() << endl;
+    cout << "Age: " << p.getAge() << endl;
+    return 0;
+}
+
+
+55. Student Class
+
+#include <iostream>
+using namespace std;
+
+class Person {
+private:
+    string name;
+    int age;
+public:
+    void setName(string n) {
+        name = n;
+    }
+    void setAge(int a) {
+        age = a;
+    }
+    string getName() {
+        return name;
+    }
+    int getAge() {
+        return age;
+    }
+};
+
+class Student : public Person {
+private:
+    string studentID;
+public:
+    void setStudentID(string id) {
+        studentID = id;
+    }
+    string getStudentID() {
+        return studentID;
+    }
+};
+
+int main() {
+    Student s;
+    s.setName("John");
+    s.setAge(20);
+    s.setStudentID("S123");
+    cout << "Name: " << s.getName() << endl;
+    cout << "Age: " << s.getAge() << endl;
+    cout << "Student ID: " << s.getStudentID() << endl;
+    return 0;
+}
+
+
+56. Car Class
+
+#include <iostream>
+using namespace std;
+
+class Car {
+private:
+    string make;
+    string model;
+    int year;
+public:
+    Car(string m, string mo, int y) {
+        make = m;
+        model = mo;
+        year = y;
+    }
+    void displayDetails() {
+        cout << "Make: " << make << endl;
+        cout << "Model: " << model << endl;
+        cout << "Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car c("Toyota", "Camry", 2020);
+    c.displayDetails();
+    return 0;
+}
+
+
+57. Array of Car Objects
+
+#include <iostream>
+using namespace std;
+
+class Car {
+private:
+    string make;
+    string model;
+    int year;
+public:
+    Car(string m, string mo, int y) {
+        make = m;
+        model = mo;
+        year = y;
+    }
+    void displayDetails() {
+        cout << "Make: " << make << endl;
+        cout << "Model: " << model << endl;
+        cout << "Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car cars[3] = {Car("Toyota", "Camry", 2020), Car("Honda", "Civic", 2019), Car("Ford", "Mustang", 2021)};
+    for (int i = 0; i < 3; i++) {
+        cars[i].displayDetails();
+        cout << endl;
+    }
+    return 0;
+}
+
+
+58. BankAccount Class
+
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+private:
+    int accountNumber;
+    double balance;
+public:
+    BankAccount(int an, double b) {
+        accountNumber = an;
+        balance = b;
+    }
+    void deposit(double amount) {
+        balance += amount;
+        cout << "Deposited: " << amount << endl;
+    }
+    void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            cout << "Withdrawn: " << amount << endl;
+        } else {
+            cout << "Insufficient balance!" << endl;
+        }
+    }
+    void displayBalance() {
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount ba(12345, 1000.0);
+    ba.displayBalance();
+    ba.deposit(500.0);
+    ba.withdraw(200.0);
+    ba.displayBalance();
+    return 0;
+}
+Here are the C++ programs for each of the given problems:
+
+59. Rectangle Class
+
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+    double calculateArea() {
+        return length * width;
+    }
+    double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+};
+
+int main() {
+    Rectangle r(10.0, 5.0);
+    cout << "Area: " << r.calculateArea() << endl;
+    cout << "Perimeter: " << r.calculatePerimeter() << endl;
+    return 0;
+}
+
+
+60. Employee Class
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:
+    string name;
+    string position;
+    double salary;
+public:
+    Employee(string n, string p, double s) {
+        name = n;
+        position = p;
+        salary = s;
+    }
+    void displayDetails() {
+        cout << "Name: " << name << endl;
+        cout << "Position: " << position << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+int main() {
+    Employee e("John Doe", "Software Engineer", 80000.0);
+    e.displayDetails();
+    return 0;
+}
+
+
+61. Counter Class
+
+#include <iostream>
+using namespace std;
+
+class Counter {
+private:
+    static int count;
+public:
+    Counter() {
+        count++;
+    }
+    static int getCount() {
+        return count;
+    }
+};
+
+int Counter::count = 0;
+
+int main() {
+    Counter c1, c2, c3;
+    cout << "Number of objects created: " << Counter::getCount() << endl;
+    return 0;
+}
+
+
+62. Math Class
+
+#include <iostream>
+using namespace std;
+
+class Math {
+public:
+    static int add(int a, int b) {
+        return a + b;
+    }
+    static int subtract(int a, int b) {
+        return a - b;
+    }
+    static int multiply(int a, int b) {
+        return a * b;
+    }
+    static int divide(int a, int b) {
+        if (b != 0) {
+            return a / b;
+        } else {
+            cout << "Error: Division by zero!" << endl;
+            return 0;
+        }
+    }
+};
+
+int main() {
+    cout << "Addition: " << Math::add(10, 5) << endl;
+    cout << "Subtraction: " << Math::subtract(10, 5) << endl;
+    cout << "Multiplication: " << Math::multiply(10, 5) << endl;
+    cout << "Division: " << Math::divide(10, 5) << endl;
+    return 0;
+}
+
+
+63. Student Class
+
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    static int totalStudents;
+public:
+    Student() {
+        totalStudents++;
+    }
+    static int getTotalStudents() {
+        return totalStudents;
+    }
+};
+
+int Student::totalStudents = 0;
+
+int main() {
+    Student s1, s2, s3;
+    cout << "Total students enrolled: " << Student::getTotalStudents() << endl;
+    return 0;
+}
+
+
+64. Book Class
+
+#include <iostream>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    string author;
+    int year;
+public:
+    Book(string t, string a, int y) {
+        title = t;
+        author = a;
+        year = y;
+    }
+    void displayDetails() {
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+        cout << "Year: " << year << endl;
+    }
+};
+
+int main() {
+    Book b("To Kill a Mockingbird", "Harper Lee", 1960);
+    b.displayDetails();
+    return 0;
+}
+
+65. Point Class
+
+#include <iostream>
+using namespace std;
+
+class Point {
+private:
+    int x;
+    int y;
+public:
+    Point() {
+        x = 0;
+        y = 0;
+    }
+    Point(int x, int y) {
+        this->x = x;
+        this->y = y;
+    }
+    Point(const Point& p) {
+        x = p.x;
+        y = p.y;
+    }
+    void displayCoordinates() {
+        cout << "(" << x << ", " << y << ")" << endl;
+    }
+};
+
+int main() {
+    Point p1;
+    Point p2(10, 20);
+    Point p3(p2);
+    p1.displayCoordinates();
+    p2.displayCoordinates();
+    p3.displayCoordinates();
+    return 0;
+}
+
+
+66. Matrix Class
+
+#include <iostream>
+using namespace std;
+
+class Matrix {
+private:
+    int rows;
+    int cols;
+    int** data;
+public:
+    Matrix(int r, int c) {
+        rows = r;
+        cols = c;
+        data = new int*[rows];
+        for (int i = 0; i < rows; i++) {
+            data[i] = new int[cols];
+        }
+    }
+    void setValue(int r, int c, int val) {
+        data[r][c] = val;
+    }
+    void displayMatrix() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                cout << data[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+    ~Matrix() {
+        for (int i = 0; i < rows; i++) {
+            delete[] data[i];
+        }
+        delete[] data;
+    }
+};
+
+int main() {
+    Matrix m(3, 3);
+    m.setValue(0, 0, 1);
+    m.setValue(1, 1, 2);
+    m.setValue(2, 2, 3);
+    m.displayMatrix();
+    return 0;
+}
+
+
+67. FileHandler Class
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class FileHandler {
+private:
+    ifstream file;
+public:
+    FileHandler(const string& filename) {
+        file.open(filename);
+        if (!file.is_open()) {
+            cout << "Error: Unable to open file." << endl;
+        }
+    }
+    ~FileHandler() {
+        if (file.is_open()) {
+            file.close();
+        }
+    }
+    void readFile() {
+        string line;
+        while (getline(file, line)) {
+            cout << line << endl;
+        }
+    }
+};
+
+int main() {
+    FileHandler fh("example.txt");
+    fh.readFile();
+    return 0;
+}
+
+
+68. DynamicArray Class
+
+#include <iostream>
+using namespace std;
+
+class DynamicArray {
+private:
+    int* data;
+    int size;
+public:
+    DynamicArray(int s) {
+        size = s;
+        data = new int[size];
+    }
+    ~DynamicArray() {
+        delete[] data;
+    }
+    void setValue(int index, int val) {
+        data[index] = val;
+    }
+    void displayArray() {
+        for (int i = 0; i < size; i++) {
+            cout << data[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    DynamicArray da(5);
+    da.setValue(0, 10);
+    da.setValue(1, 20);
+    da.setValue(2, 30);
+    da.setValue(3, 40);
+    da.setValue(4, 50);
+    da.displayArray();
+    return 0;
+}
+
+
+69. Logger Class
+
+#include <iostream>
+using namespace std;
+
+class Logger {
+public:
+    Logger() {
+        cout << "Logger object created." << endl;
+    }
+    ~Logger() {
+        cout << "Logger object destroyed." << endl;
+    }
+    void logMessage(const string& message) {
+        cout << "Log message: " << message << endl;
+    }
+};
+
+int main() {
+    Logger logger;
+    logger.logMessage("Hello, world!");
+    return 0;
+}
+
+70. Complex Class
+
+#include <iostream>
+using namespace std;
+
+class Complex {
+private:
+    double real;
+    double imag;
+public:
+    Complex(double r = 0, double i = 0) {
+        real = r;
+        imag = i;
+    }
+    Complex operator+(const Complex& other) {
+        return Complex(real + other.real, imag + other.imag);
+    }
+    void displayComplex() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(3, 4);
+    Complex c2(2, 1);
+    Complex c3 = c1 + c2;
+    c1.displayComplex();
+    c2.displayComplex();
+    c3.displayComplex();
+    return 0;
+}
+
+
+71. Fraction Class
+
+#include <iostream>
+using namespace std;
+
+class Fraction {
+private:
+    int numerator;
+    int denominator;
+public:
+    Fraction(int n = 0, int d = 1) {
+        numerator = n;
+        denominator = d;
+    }
+    friend ostream& operator<<(ostream& os, const Fraction& f) {
+        os << f.numerator << "/" << f.denominator;
+        return os;
+    }
+    friend istream& operator>>(istream& is, Fraction& f) {
+        is >> f.numerator;
+        char slash;
+        is >> slash;
+        is >> f.denominator;
+        return is;
+    }
+};
+
+int main() {
+    Fraction f;
+    cout << "Enter a fraction (e.g., 1/2): ";
+    cin >> f;
+    cout << "You entered: " << f << endl;
+    return 0;
+}
+
+
+72. Date Class
+
+#include <iostream>
+using namespace std;
+
+class Date {
+private:
+    int day;
+    int month;
+    int year;
+public:
+    Date(int d = 1, int m = 1, int y = 2000) {
+        day = d;
+        month = m;
+        year = y;
+    }
+    bool operator==(const Date& other) {
+        return (day == other.day && month == other.month && year == other.year);
+    }
+    void displayDate() {
+        cout << day << "/" << month << "/" << year << endl;
+    }
+};
+
+int main() {
+    Date d1(10, 5, 2022);
+    Date d2(10, 5, 2022);
+    Date d3(11, 5, 2022);
+    if (d1 == d2) {
+        cout << "Dates are equal." << endl;
+    } else {
+        cout << "Dates are not equal." << endl;
+    }
+    if (d1 == d3) {
+        cout << "Dates are equal." << endl;
+    } else {
+        cout << "Dates are not equal." << endl;
+    }
+    return 0;
+}
+
+
+73. Vector Class
+
+#include <iostream>
+using namespace std;
+
+class Vector {
+private:
+    int* data;
+    int size;
+public:
+    Vector(int s) {
+        size = s;
+        data = new int[size];
+    }
+    ~Vector() {
+        delete[] data;
+    }
+    int& operator[](int index) {
+        return data[index];
+    }
+    void displayVector() {
+        for (int i = 0; i < size; i++) {
+            cout << data[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Vector v(5);
+    v[0] = 10;
+    v[1] = 20;
+    v[2] = 30;
+    v[3] = 40;
+    v[4] = 50;
+    v.displayVector();
+    return 0;
+}
+
+
+74. Box Class
+
+#include <iostream>
+using namespace std;
+
+class Box {
+private:
+    double length;
+    double width;
+    double height;
+public:
+    Box(double l, double w, double h) {
+        length = l;
+        width = w;
+        height = h;
+    }
+    friend double calculateVolume(const Box& b1, const Box& b2) {
+        return b1.length * b1.width * b1.height + b2.length * b2.width * b2.height;
+    }
+};
+
+int main() {
+    Box b1(10, 5, 2);
+    Box b2(8, 4, 3);
+    double volume = calculateVolume(b1, b2);
+    cout << "Total volume: " << volume << endl;
+    return 0;
+}
+
+75. Circle Class
+
+#include <iostream>
+using namespace std;
+
+class Circle {
+private:
+    double radius;
+public:
+    Circle(double r) {
+        radius = r;
+    }
+    friend double calculateArea(const Circle& c) {
+        return 3.14159 * c.radius * c.radius;
+    }
+};
+
+int main() {
+    Circle c(5.0);
+    double area = calculateArea(c);
+    cout << "Area of circle: " << area << endl;
+    return 0;
+}
+
+
+76. Distance Class
+
+#include <iostream>
+using namespace std;
+
+class Distance {
+private:
+    int feet;
+    int inches;
+public:
+    Distance(int f, int i) {
+        feet = f;
+        inches = i;
+    }
+    friend Distance addDistances(const Distance& d1, const Distance& d2) {
+        int totalFeet = d1.feet + d2.feet;
+        int totalInches = d1.inches + d2.inches;
+        totalFeet += totalInches / 12;
+        totalInches %= 12;
+        return Distance(totalFeet, totalInches);
+    }
+    void displayDistance() {
+        cout << feet << " feet " << inches << " inches" << endl;
+    }
+};
+
+int main() {
+    Distance d1(5, 10);
+    Distance d2(3, 8);
+    Distance d3 = addDistances(d1, d2);
+    d3.displayDistance();
+    return 0;
+}
+
+
+77. Shape Class
+
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void displayShape() = 0;
+};
+
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) {
+        radius = r;
+    }
+    void displayShape() {
+        cout << "Circle with radius " << radius << endl;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+    void displayShape() {
+        cout << "Rectangle with length " << length << " and width " << width << endl;
+    }
+};
+
+class Triangle : public Shape {
+private:
+    double base;
+    double height;
+public:
+    Triangle(double b, double h) {
+        base = b;
+        height = h;
+    }
+    void displayShape() {
+        cout << "Triangle with base " << base << " and height " << height << endl;
+    }
+};
+
+int main() {
+    Circle c(5.0);
+    Rectangle r(4.0, 6.0);
+    Triangle t(3.0, 7.0);
+    c.displayShape();
+    r.displayShape();
+    t.displayShape();
+    return 0;
+}
+
+
+78. Animal Class
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void displayAnimal() = 0;
+};
+
+class Dog : public Animal {
+public:
+    void displayAnimal() {
+        cout << "Dog" << endl;
+    }
+};
+
+class Cat : public Animal {
+public:
+    void displayAnimal() {
+        cout << "Cat" << endl;
+    }
+};
+
+class Bird : public Animal {
+public:
+    void displayAnimal() {
+        cout << "Bird" << endl;
+    }
+};
+
+int main() {
+    Dog d;
+    Cat c;
+    Bird b;
+    d.displayAnimal();
+    c.displayAnimal();
+    b.displayAnimal();
+    return 0;
+}
+
+
+79. Vehicle Class
+
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+public:
+    virtual void displayVehicle() = 0;
+};
+
+class Car : public Vehicle {
+public:
+    void displayVehicle() {
+        cout << "Car" << endl;
+    }
+};
+
+class Bike : public Vehicle {
+public:
+    void displayVehicle() {
+        cout << "Bike" << endl;
+    }
+};
+
+int main() {
+    Car c;
+    Bike b;
+    c.displayVehicle();
+    b.displayVehicle();
+    return 0;
+}
+
+80. Single Inheritance
+
+#include <iostream>
+using namespace std;
+
+class Person {
+protected:
+    string name;
+    int age;
+public:
+    Person(string n, int a) {
+        name = n;
+        age = a;
+    }
+    void displayPerson() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+class Employee : public Person {
+private:
+    double salary;
+public:
+    Employee(string n, int a, double s) : Person(n, a) {
+        salary = s;
+    }
+    void displayEmployee() {
+        displayPerson();
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+int main() {
+    Employee e("John", 30, 50000.0);
+    e.displayEmployee();
+    return 0;
+}
+
+
+81. Multiple Inheritance
+
+#include <iostream>
+using namespace std;
+
+class Parent {
+public:
+    void displayParent() {
+        cout << "Parent class" << endl;
+    }
+};
+
+class Child1 : public Parent {
+public:
+    void displayChild1() {
+        cout << "Child1 class" << endl;
+    }
+};
+
+class Child2 : public Parent {
+public:
+    void displayChild2() {
+        cout << "Child2 class" << endl;
+    }
+};
+
+int main() {
+    Child1 c1;
+    Child2 c2;
+    c1.displayParent();
+    c1.displayChild1();
+    c2.displayParent();
+    c2.displayChild2();
+    return 0;
+}
+
+
+82. Hierarchical Inheritance
+
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void displayBase() {
+        cout << "Base class" << endl;
+    }
+};
+
+class Derived1 : public Base {
+public:
+    void displayDerived1() {
+        cout << "Derived1 class" << endl;
+    }
+};
+
+class Derived2 : public Base {
+public:
+    void displayDerived2() {
+        cout << "Derived2 class" << endl;
+    }
+};
+
+class Derived3 : public Base {
+public:
+    void displayDerived3() {
+        cout << "Derived3 class" << endl;
+    }
+};
+
+int main() {
+    Derived1 d1;
+    Derived2 d2;
+    Derived3 d3;
+    d1.displayBase();
+    d1.displayDerived1();
+    d2.displayBase();
+    d2.displayDerived2();
+    d3.displayBase();
+    d3.displayDerived3();
+    return 0;
+}
+
+
+83. Multilevel Inheritance
+
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void displayBase() {
+        cout << "Base class" << endl;
+    }
+};
+
+class Intermediate : public Base {
+public:
+    void displayIntermediate() {
+        cout << "Intermediate class" << endl;
+    }
+};
+
+class Derived : public Intermediate {
+public:
+    void displayDerived() {
+        cout << "Derived class" << endl;
+    }
+};
+
+int main() {
+    Derived d;
+    d.displayBase();
+    d.displayIntermediate();
+    d.displayDerived();
+    return 0;
+}
+
+
+84. Hybrid Inheritance
+
+#include <iostream>
+using namespace std;
+
+class Base {
+public:
+    void displayBase() {
+        cout << "Base class" << endl;
+    }
+};
+
+class Derived1 : public Base {
+public:
+    void displayDerived1() {
+        cout << "Derived1 class" << endl;
+    }
+};
+
+class Derived2 : public Base {
+public:
+    void displayDerived2() {
+        cout << "Derived2 class" << endl;
+    }
+};
+
+class Derived3 : public Derived1, public Derived2 {
+public:
+    void displayDerived3() {
+        cout << "Derived3 class" << endl;
+    }
+};
+
+int main() {
+    Derived3 d;
+    d.displayBase();
+    d.displayDerived1();
+    d.displayDerived2();
+    d.displayDerived3();
+    return 0;
+}
+
+
+85. Accessibility of Class Members
+
+#include <iostream>
+using namespace std;
+
+class Library {
+private:
+    string privateMember;
+protected:
+    string protectedMember;
+public:
+    string publicMember;
+    Library() {
+        privateMember = "Private member";
+        protectedMember = "Protected member";
+        publicMember = "Public member";
+    }
+    void displayPrivateMember() {
+        cout << privateMember << endl;
+    }
+};
+
+class DerivedLibrary : public Library {
+public:
+    void displayProtectedMember() {
+        cout << protectedMember << endl;
+    }
+};
+
+int main() {
+    Library l;
+    // l.displayPrivateMember(); // Error: private member
+    // l.protectedMember; // Error: protected member
+    cout << l.publicMember << endl; // Public member
+    DerivedLibrary dl;
+    dl.display
+}
+
+86. Account Class
+
+#include <iostream>
+using namespace std;
+
+class Account {
+private:
+    string accountNumber;
+    double balance;
+public:
+    Account(string an, double b) {
+        accountNumber = an;
+        balance = b;
+    }
+    string getAccountNumber() {
+        return accountNumber;
+    }
+    double getBalance() {
+        return balance;
+    }
+    void deposit(double amount) {
+        balance += amount;
+    }
+    void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            cout << "Insufficient balance" << endl;
+        }
+    }
+};
+
+int main() {
+    Account a("123456789", 1000.0);
+    cout << "Account Number: " << a.getAccountNumber() << endl;
+    cout << "Initial Balance: " << a.getBalance() << endl;
+    a.deposit(500.0);
+    cout << "Balance after deposit: " << a.getBalance() << endl;
+    a.withdraw(200.0);
+    cout << "Balance after withdrawal: " << a.getBalance() << endl;
+    return 0;
+}
+
+
+87. Function Overriding
+
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void draw() {
+        cout << "Drawing a shape" << endl;
+    }
+};
+
+class Circle : public Shape {
+public:
+    void draw() {
+        cout << "Drawing a circle" << endl;
+    }
+};
+
+int main() {
+    Shape s;
+    Circle c;
+    s.draw();
+    c.draw();
+    Shape* ptr = &c;
+    ptr->draw();
+    return 0;
+}
+
+
+88. Employee and Manager Classes
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+public:
+    virtual void display() {
+        cout << "Employee class" << endl;
+    }
+};
+
+class Manager : public Employee {
+public:
+    void display() {
+        cout << "Manager class" << endl;
+    }
+};
+
+int main() {
+    Employee e;
+    Manager m;
+    e.display();
+    m.display();
+    Employee* ptr = &m;
+    ptr->display();
+    return 0;
+}
+
+
+89. Virtual Base Class
+
+#include <iostream>
+using namespace std;
+
+class Entity {
+public:
+    void display() {
+        cout << "Entity class" << endl;
+    }
+};
+
+class Person : virtual public Entity {
+public:
+    void displayPerson() {
+        cout << "Person class" << endl;
+    }
+};
+
+class Organization : virtual public Entity {
+public:
+    void displayOrganization() {
+        cout << "Organization class" << endl;
+    }
+};
+
+class Employee : public Person, public Organization {
+public:
+    void displayEmployee() {
+        cout << "Employee class" << endl;
+    }
+};
+
+int main() {
+    Employee e;
+    e.display();
+    e.displayPerson();
+    e.displayOrganization();
+    e.displayEmployee();
+    return 0;
+}
+
+
+90. Diamond Problem
+
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void eat() {
+        cout << "Eating" << endl;
+    }
+};
+
+class Mammal : virtual public Animal {
+public:
+    void walk() {
+        cout << "Walking" << endl;
+    }
+};
+
+class Carnivore : virtual public Animal {
+public:
+    void hunt() {
+        cout << "Hunting" << endl;
+    }
+};
+
+class Lion : public Mammal, public Carnivore {
+public:
+    void roar() {
+        cout << "Roaring" << endl;
+    }
+};
+
+int main() {
+    Lion l;
+    l.eat();
+    l.walk();
+    l.hunt();
+    l.roar();
+    return 0;
+}
+91. Polynomial Class
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Polynomial {
+private:
+    vector<int> coefficients;
+public:
+    Polynomial(vector<int> c) {
+        coefficients = c;
+    }
+    Polynomial add(Polynomial p) {
+        vector<int> result;
+        int maxLength = max(coefficients.size(), p.coefficients.size());
+        for (int i = 0; i < maxLength; i++) {
+            int sum = 0;
+            if (i < coefficients.size()) {
+                sum += coefficients[i];
+            }
+            if (i < p.coefficients.size()) {
+                sum += p.coefficients[i];
+            }
+            result.push_back(sum);
+        }
+        return Polynomial(result);
+    }
+    Polynomial multiply(Polynomial p) {
+        vector<int> result(coefficients.size() + p.coefficients.size() - 1, 0);
+        for (int i = 0; i < coefficients.size(); i++) {
+            for (int j = 0; j < p.coefficients.size(); j++) {
+                result[i + j] += coefficients[i] * p.coefficients[j];
+            }
+        }
+        return Polynomial(result);
+    }
+    void display() {
+        for (int i = 0; i < coefficients.size(); i++) {
+            cout << coefficients[i] << "x^" << i << " + ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Polynomial p1({1, 2, 3});
+    Polynomial p2({4, 5, 6});
+    Polynomial sum = p1.add(p2);
+    Polynomial product = p1.multiply(p2);
+    p1.display();
+    p2.display();
+    sum.display();
+    product.display();
+    return 0;
+}
+
+
+92. SparseMatrix Class
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class SparseMatrix {
+private:
+    int rows;
+    int cols;
+    vector<vector<int>> data;
+public:
+    SparseMatrix(int r, int c) {
+        rows = r;
+        cols = c;
+        data.resize(rows, vector<int>(cols, 0));
+    }
+    void set(int r, int c, int val) {
+        data[r][c] = val;
+    }
+    SparseMatrix add(SparseMatrix m) {
+        SparseMatrix result(rows, cols);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result.data[i][j] = data[i][j] + m.data[i][j];
+            }
+        }
+        return result;
+    }
+    SparseMatrix multiply(SparseMatrix m) {
+        SparseMatrix result(rows, m.cols);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < m.cols; j++) {
+                for (int k = 0; k < cols; k++) {
+                    result.data[i][j] += data[i][k] * m.data[k][j];
+                }
+            }
+        }
+        return result;
+    }
+    void display() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                cout << data[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    SparseMatrix m1(2, 2);
+    m1.set(0, 0, 1);
+    m1.set(1, 1, 2);
+    SparseMatrix m2(2, 2);
+    m2.set(0, 0, 3);
+    m2.set(1, 1, 4);
+    SparseMatrix sum = m1.add(m2);
+    SparseMatrix product = m1.multiply(m2);
+    m1.display();
+    m2.display();
+    sum.display();
+    product.display();
+    return 0;
+}
+
+
+93. Time Class
+
+#include <iostream>
+using namespace std;
+
+class Time {
+private:
+    int hours;
+    int minutes;
+    int seconds;
+public:
+    Time(int h, int m, int s) {
+        hours = h;
+        minutes = m;
+        seconds = s;
+    }
+    Time add(Time t) {
+        int totalSeconds = seconds + t.seconds;
+        int totalMinutes = minutes + t.minutes;
+        int totalHours = hours + t.hours;
+        totalMinutes += totalSeconds / 60;
+        totalSeconds %= 60;
+        totalHours += totalMinutes / 60;
+        totalMinutes %= 60;
+        return Time(totalHours, totalMinutes, totalSeconds);
+    }
+    Time subtract(Time t) {
+        int totalSeconds = seconds - t.seconds;
+        int totalMinutes = minutes - t.minutes;
+        int totalHours = hours - t.hours;
+        if (totalSeconds < 0) {
+            totalSeconds += 60;
+            totalMinutes--;
+        }
+        if (totalMinutes < 0) {
+            totalMinutes += 60;
+            totalHours--;
+        }
+        return Time(totalHours, totalMinutes, totalSeconds);
+    }
+    bool isEqual(Time t) {
+        return (hours == t.hours && minutes == t.minutes && seconds == t.seconds);
+    }
+    void display() {
+        cout << hours << ":" << minutes << ":" << seconds << endl;
+    }
+};
+
+int main() {
+    Time t1(10, 30, 0);
+    Time t2(2, 45, 0);
+    Time sum = t1.add(t2);
+    Time difference = t1.subtract(t2);
+    t1.display();
+    t2.display();
+    sum.display();
+    difference.display();
+    if (t1.isEqual(t2)) {
+        cout << "Times are equal" << endl;
+    } else {
+        cout << "Times are not equal" << endl;
+    }
+    return 0;
+}
+
+
+94. BigNumber Class
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BigNumber {
+private:
+    string num;
+public:
+    BigNumber(string n) {
+        num = n;
+    }
+    BigNumber add(BigNumber n) {
+        string result;
+        int carry = 0;
+        int i = num.length() - 1;
+        int j = n.num.length() - 1;
+        while (i >= 0 || j >= 0 || carry > 0) {
+            int sum = carry;
+            if (i >= 0) {
+                sum += num[i--] - '0';
+            }
+            if (j >= 0) {
+                sum += n.num[j--] - '0';
+            }
+            carry = sum / 10;
+            result = to_string(sum % 10) + result;
+        }
+        return BigNumber(result);
+    }
+    void display() {
+        cout << num << endl;
+    }
+};
+
+int main() {
+    BigNumber n1("12345678901234567890");
+    BigNumber n2("98765432109876543210");
+    BigNumber sum = n1.add(n2);
+    n1.display();
+    n2.display();
+    sum.display();
+    return 0;
+}
+
+
+95. FileCompressor Class
+
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <zlib.h>
+using namespace std;
+
+class FileCompressor {
+public:
+    void compress(string inputFile, string outputFile) {
+        ifstream in(inputFile, ios::binary);
+        ofstream out(outputFile, ios::binary);
+        char buffer[1024];
+        while (in.read(buffer, 1024)) {
+            uLongf compressedSize = 1024;
+            char compressedBuffer[1024];
+            compress(compressedBuffer, &compressedSize, buffer, 1024);
+            out.write(compressedBuffer, compressedSize);
+        }
+        in.close();
+        out.close();
+    }
+    void decompress(string inputFile, string outputFile) {
+        ifstream in(inputFile, ios::binary);
+        ofstream out(outputFile, ios::binary);
+        char buffer[1024];
+        while (in.read(buffer, 1024)) {
+            uLongf decompressedSize = 1024;
+            char decompressedBuffer[1024];
+            uncompress(decompressedBuffer, &decompressedSize, buffer, 1024.display();
+        in.close();
+        out.close();
+    }
+};
+
+int main() {
+    FileCompressor fc;
+    fc.compress("input.txt", "output.z");
+    fc.decompress("output.z", "decompressed.txt");
+    return 0;
+}
+
+96. Network Class
+
+#include <iostream>
+#include <queue>
+#include <string>
+using namespace std;
+
+class Packet {
+public:
+    string data;
+    int source;
+    int destination;
+    Packet(string d, int s, int dest) {
+        data = d;
+        source = s;
+        destination = dest;
+    }
+};
+
+class Network {
+private:
+    queue<Packet> packets;
+public:
+    void sendPacket(Packet p) {
+        packets.push(p);
+    }
+    void receivePacket() {
+        if (!packets.empty()) {
+            Packet p = packets.front();
+            packets.pop();
+            cout << "Received packet from " << p.source << " to " << p.destination << ": " << p.data << endl;
+        } else {
+            cout << "No packets to receive" << endl;
+        }
+    }
+    void displayPackets() {
+        queue<Packet> temp = packets;
+        while (!temp.empty()) {
+            Packet p = temp.front();
+            temp.pop();
+            cout << "Packet from " << p.source << " to " << p.destination << ": " << p.data << endl;
+        }
+    }
+};
+
+int main() {
+    Network n;
+    Packet p1("Hello", 1, 2);
+    Packet p2("World", 2, 1);
+    n.sendPacket(p1);
+    n.sendPacket(p2);
+    n.displayPackets();
+    n.receivePacket();
+    n.receivePacket();
+    return 0;
+}
+
+
+97. Cache Class
+
+#include <iostream>
+#include <map>
+#include <string>
+using namespace std;
+
+class Cache {
+private:
+    map<string, string> data;
+public:
+    void store(string key, string value) {
+        data[key] = value;
+    }
+    string retrieve(string key) {
+        if (data.find(key) != data.end()) {
+            return data[key];
+        } else {
+            return "";
+        }
+    }
+    void displayCache() {
+        for (auto it = data.begin(); it != data.end(); it++) {
+            cout << "Key: " << it->first << ", Value: " << it->second << endl;
+        }
+    }
+};
+
+int main() {
+    Cache c;
+    c.store("key1", "value1");
+    c.store("key2", "value2");
+    c.displayCache();
+    cout << "Retrieved value: " << c.retrieve("key1") << endl;
+    return 0;
+}
+
+
+98. Game Class
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Game {
+private:
+    string playerName;
+    int score;
+public:
+    Game(string name) {
+        playerName = name;
+        score = 0;
+    }
+    void play() {
+        cout << "Welcome, " << playerName << "!" << endl;
+        while (true) {
+            cout << "Your current score is: " << score << endl;
+            cout << "Do you want to roll the dice? (yes/no)" << endl;
+            string input;
+            cin >> input;
+            if (input == "yes") {
+                int roll = rand() % 6 + 1;
+                cout << "You rolled a " << roll << endl;
+                score += roll;
+            } else if (input == "no") {
+                break;
+            } else {
+                cout << "Invalid input. Please try again." << endl;
+            }
+        }
+    }
+    void displayScore() {
+        cout << "Final score: " << score << endl;
+    }
+};
+
+int main() {
+    Game g("John");
+    g.play();
+    g.displayScore();
+    return 0;
+}
+
+
