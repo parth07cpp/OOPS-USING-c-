@@ -1,0 +1,1025 @@
+
+50. Basic Input and Output using Streams
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Hello, " << name << "!" << endl;
+    return 0;
+}
+
+
+51. Reading and Displaying Multiple Lines of Text
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string line;
+    cout << "Enter multiple lines of text (type 'exit' to stop):" << endl;
+    while (true) {
+        getline(cin, line);
+        if (line == "exit") break;
+        cout << "You entered: " << line << endl;
+    }
+    return 0;
+}
+
+
+52. Reading Integers and Displaying their Sum
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, sum = 0;
+    cout << "Enter integers (type -1 to stop):" << endl;
+    while (true) {
+        cin >> num;
+        if (num == -1) break;
+        sum += num;
+    }
+    cout << "Sum: " << sum << endl;
+    return 0;
+}
+
+
+53. Input and Output of Various Data Types
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    double height;
+    string name;
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "Enter your height (in meters): ";
+    cin >> height;
+    cout << "Name: " << name << endl;
+    cout << "Age: " << age << endl;
+    cout << "Height: " << height << " meters" << endl;
+    return 0;
+}
+
+
+54. Formatting Output using Manipulators
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double pi = 3.14159265359;
+    cout << "Default: " << pi << endl;
+    cout << "Fixed: " << fixed << pi << endl;
+    cout << "Precision 2: " << setprecision(2) << pi << endl;
+    cout << "Width 10: " << setw(10) << pi << endl;
+    return 0;
+}
+
+
+55. Formatted Output for User Information
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    string name;
+    int age;
+    double salary;
+    cout << "Enter your name: ";
+    cin >> name;
+    cout << "Enter your age: ";
+    cin >> age;
+    cout << "Enter your salary: ";
+    cin >> salary;
+    cout << "Name: " << setw(10) << name << endl;
+    cout << "Age: " << setw(5) << age << endl;
+    cout << "Salary: " << fixed << setprecision(2) << setw(10) << salary << endl;
+    return 0;
+}
+
+
+56. File Input and Output using ifstream and ofstream
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("output.txt");
+    outFile << "Hello, World!" << endl;
+    outFile.close();
+    ifstream inFile("output.txt");
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+    return 0;
+}
+
+
+57. Reading Integers from a File
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("numbers.txt");
+    int num;
+    while (inFile >> num) {
+        cout << num << endl;
+    }
+    inFile.close();
+    return 0;
+}
+
+
+58. Writing a List of Strings to a File
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<string> strings = {"Hello", "World", "C++", "Programming"};
+    ofstream outFile("strings.txt");
+    for (const auto& str : strings) {
+        outFile << str << endl;
+    }
+    outFile.close();
+    return 0;
+}
+
+
+59. Unformatted Input and Output using get and put
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    cout << "Enter a character: ";
+    ch = cin.get();
+    cout << "You entered: ";
+    cout.put(ch);
+    cout << endl;
+    return 0;
+}
+
+
+60. Reading and Writing Characters using get and put
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    cout << "Enter characters (type '.' to stop):" << endl;
+    while (true) {
+        ch = cin.get();
+        if (ch == '.') break;
+        cout.put(ch);
+    }
+    cout << endl;
+    return 0;
+}
+
+
+61. Formatted Input and Output for a Table of Data
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    cout << setw(10) << "Name" << setw(10) << "Age" << setw(10) << "Salary" << endl;
+    cout << setw(10) << "John" << setw(10) << 25 << setw(10) << 50000 << endl;
+    cout << setw(10) << "Alice" << setw(10) << 30 << setw(10) << 60000 << endl;
+    return 0;
+}
+
+
+62. Reading a Full Line of Text using getline
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string line;
+    cout << "Enter a line of text: ";
+    getline(cin, line);
+    cout << "You entered: " << line << endl;
+    return 0;
+}
+
+
+63. Formatting Floating-Point Numbers with Different Precisions
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double pi = 3.14159265359;
+    cout << "Default: " << pi << endl;
+    cout << "Precision 2: " << fixed << setprecision(2) << pi << endl;
+    cout << "Precision 4: " << setprecision(4) << pi << endl;
+    return 0;
+}
+
+
+64. Aligning Text Output in Columns using setw
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main() {
+    string names[] = {"John", "Alice", "Bob"};
+    int ages[] = {25, 30, 35};
+    for (int i = 0; i < 3; i++) {
+        cout << setw(10) << names[i] << setw(5) << ages[i] << endl;
+    }
+    return 0;
+}
+
+
+65. Formatting Currency and Percentage Values
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    double price = 123.45;
+    double discount = 0.10;
+    cout << "Price: $" << fixed << setprecision(2) << price << endl;
+    cout << "Discount: " << setprecision(0) << fixed << discount * 100 << "%" << endl;
+    return 0;
+}
+
+
+66. Reading Data from a Text File
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream inFile("data.txt");
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+    return 0;
+}
+
+
+67. Writing User Input to a Text File
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ofstream outFile("output.txt");
+    string input;
+    cout << "Enter text (type 'exit' to stop):" << endl;
+    while (true) {
+        getline(cin, input);
+        if (input == "exit") break;
+        outFile << input << endl;
+    }
+    outFile.close();
+    return 0;
+}
+
+
+68. Copying File Contents
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("source.txt");
+    ofstream outFile("destination.txt");
+    char ch;
+    while (inFile.get(ch)) {
+        outFile.put(ch);
+    }
+    inFile.close();
+    outFile.close();
+    return 0;
+}
+
+
+69. Appending Data to an Existing File
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ofstream outFile("data.txt", ios::app);
+    string input;
+    cout << "Enter text to append (type 'exit' to stop):" << endl;
+    while (true) {
+        getline(cin, input);
+        if (input == "exit") break;
+        outFile << input << endl;
+    }
+    outFile.close();
+    return 0;
+}
+
+
+70. Reading Binary Data from a File
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("data.bin", ios::binary);
+    int num;
+    inFile.read((char*)&num, sizeof(num));
+    cout << "Read: " << num << endl;
+    inFile.close();
+    return 0;
+}
+
+
+71. Writing Binary Data to a File
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("data.bin", ios::binary);
+    int num = 123;
+    outFile.write((char*)&num, sizeof(num));
+    outFile.close();
+    return 0;
+}
+
+
+72. Using fstream for Input and Output
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file("data.txt", ios::in | ios::out | ios::app);
+    if (file.is_open()) {
+        file << "Hello, World!" << endl;
+        file.seekg(0);
+        string line;
+        while (getline(file, line)) {
+            cout << line << endl;
+        }
+        file.close();
+    }
+    return 0;
+}
+
+73. Reading and Writing Complex Data Structures
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Person {
+    int age;
+    char name[20];
+};
+
+int main() {
+    Person person = {25, "John"};
+    ofstream outFile("person.bin", ios::binary);
+    outFile.write((char*)&person, sizeof(person));
+    outFile.close();
+
+    Person readPerson;
+    ifstream inFile("person.bin", ios::binary);
+    inFile.read((char*)&readPerson, sizeof(readPerson));
+    cout << "Name: " << readPerson.name << endl;
+    cout << "Age: " << readPerson.age << endl;
+    inFile.close();
+    return 0;
+}
+
+
+74. Renaming and Deleting Files
+
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+int main() {
+    rename("old.txt", "new.txt");
+    remove("temp.txt");
+    return 0;
+}
+
+
+75. Creating, Opening, and Closing Files
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");
+    outFile << "Hello, World!" << endl;
+    outFile.close();
+
+    ifstream inFile("example.txt");
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+    return 0;
+}
+
+
+76. Manipulating File Pointers using seekg and tellg
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("example.txt");
+    inFile.seekg(0, ios::end);
+    int length = inFile.tellg();
+    cout << "File length: " << length << endl;
+    inFile.seekg(0);
+    string line;
+    getline(inFile, line);
+    cout << line << endl;
+    inFile.close();
+    return 0;
+}
+
+
+77. Setting and Retrieving Put Pointer Position
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file("example.txt", ios::in | ios::out);
+    file << "Hello";
+    streampos pos = file.tellp();
+    cout << "Current position: " << pos << endl;
+    file.seekp(0);
+    file << "New";
+    file.close();
+    return 0;
+}
+
+
+78. Opening Files in Different Modes
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt"); // write mode
+    outFile << "Hello, World!" << endl;
+    outFile.close();
+
+    ofstream appendFile("example.txt", ios::app); // append mode
+    appendFile << "Appended text" << endl;
+    appendFile.close();
+
+    ifstream inFile("example.txt"); // read mode
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+    return 0;
+}
+
+
+79. Reading and Writing in Binary Mode
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    int num = 123;
+    ofstream outFile("data.bin", ios::binary);
+    outFile.write((char*)&num, sizeof(num));
+    outFile.close();
+
+    int readNum;
+    ifstream inFile("data.bin", ios::binary);
+    inFile.read((char*)&readNum, sizeof(readNum));
+    cout << "Read: " << readNum << endl;
+    inFile.close();
+    return 0;
+}
+
+
+80. Difference between Text and Binary Modes
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    // Text mode
+    ofstream outFileText("text.txt");
+    outFileText << "Hello, World!" << endl;
+    outFileText.close();
+
+    // Binary mode
+    ofstream outFileBinary("binary.bin", ios::binary);
+    char buffer[] = "Hello, World!";
+    outFileBinary.write(buffer, sizeof(buffer));
+    outFileBinary.close();
+    return 0;
+}
+
+
+81. Truncation Mode
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");
+    outFile << "Hello, World!" << endl;
+    outFile.close();
+
+    ofstream outFileTrunc("example.txt", ios::trunc);
+    outFileTrunc << "New content" << endl;
+    outFileTrunc.close();
+
+    ifstream inFile("example.txt");
+    string line;
+    while (getline(inFile, line)) {
+        cout << line << endl;
+    }
+    inFile.close();
+    return 0;
+}
+
+
+82. Reading and Writing Binary Data
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    int num = 123;
+    ofstream outFile("data.bin", ios::binary);
+    outFile.write((char*)&num, sizeof(num));
+    outFile.close();
+
+    int readNum;
+    ifstream inFile("data.bin", ios::binary);
+    inFile.read((char*)&readNum, sizeof(readNum));
+    cout << "Read: " << readNum << endl;
+    inFile.close();
+    return 0;
+}
+
+
+83. Random Access in Binary File
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    fstream file("data.bin", ios::in | ios::out | ios::binary);
+    int num = 123;
+    file.seekp(0);
+    file.write((char*)&num, sizeof(num));
+    file.seekg(0);
+    int readNum;
+    file.read((char*)&readNum, sizeof(readNum));
+    cout << "Read: " << readNum << endl;
+    file.close();
+    return 0;
+}
+
+
+84. Reading and Writing Structure
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Person {
+    int age;
+    char name[20];
+};
+
+int main() {
+    Person person = {25, "John"};
+    fstream file("person.bin", ios::in | ios::out | ios::binary);
+    file.write((char*)&person, sizeof(person));
+    file.seekg(0);
+    Person readPerson;
+    file.read((char*)&readPerson, sizeof(readPerson));
+    cout << "Name: " << readPerson.name << endl;
+    cout << "Age: " << readPerson.age << endl;
+    file.close();
+    return 0;
+}
+
+
+85. Updating Records
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Person {
+    int age;
+    char name[20];
+};
+
+int main() {
+    Person person = {30, "Jane"};
+    fstream file("person.bin", ios::in | ios::out | ios::binary);
+    file.seekp(0);
+    file.write((char*)&person, sizeof(person));
+    file.seekg(0);
+    Person readPerson;
+    file.read((char*)&readPerson, sizeof(readPerson));
+    cout << "Name: " << readPerson.name << endl;
+    cout << "Age: " << readPerson.age << endl;
+    file.close();
+    return 0;
+}
+
+
+86. Reading Binary File in Reverse
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ifstream inFile("data.bin", ios::binary | ios::ate);
+    int size = inFile.tellg();
+    inFile.seekg(-1, ios::end);
+    char ch;
+    while (inFile.tellg() >= 0) {
+        inFile.get(ch);
+        cout << ch;
+        inFile.seekg(-2, ios::cur);
+    }
+    inFile.close();
+    return 0;
+}
+
+
+87. Processing User Input
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    string input;
+    cout << "Enter text: ";
+    getline(cin, input);
+    ofstream outFile("output.txt");
+    outFile << input << endl;
+    outFile.close();
+    return 0;
+}
+
+
+88. Reading Configuration File
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream configFile("config.txt");
+    string line;
+    while (getline(configFile, line)) {
+        cout << line << endl;
+    }
+    configFile.close();
+    return 0;
+}
+
+
+89. Logging Error Messages
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream logFile("error.log");
+    logFile << "Error: Something went wrong" << endl;
+    logFile.close();
+    return 0;
+}
+
+
+90. Simple Text Editor
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    string filename, line;
+    cout << "Enter filename: ";
+    cin >> filename;
+    fstream file(filename, ios::in | ios::out | ios::app);
+    if (!file) {
+        cout << "Error opening file" << endl;
+        return 1;
+    }
+    while (true) {
+        cout << "1. Read, 2. Write, 3. Exit" << endl;
+        int choice;
+        cin >> choice;
+        switch (choice) {
+            case 1:
+                file.clear();
+                file.seekg(0);
+                while (getline(file, line)) {
+                    cout << line << endl;
+                }
+                break;
+            case 2:
+                file.clear();
+                file.seekp(0, ios::end);
+                cin.ignore();
+                while (getline(cin, line)) {
+                    if (line == ".exit") break;
+                    file << line << endl;
+                }
+                break;
+            case 3:
+                file.close();
+                return 0;
+            default:
+                cout << "Invalid choice" << endl;
+        }
+    }
+    return 0;
+}
+
+
+91. Reading CSV File
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream file("data.csv");
+    string line, cell;
+    while (getline(file, line)) {
+        stringstream row(line);
+        while (getline(row, cell, ',')) {
+            cout << cell << " | ";
+        }
+        cout << endl;
+    }
+    file.close();
+    return 0;
+}
+
+
+92. Searching for a Word
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+    ifstream file("text.txt");
+    string word, line;
+    cout << "Enter word to search: ";
+    cin >> word;
+    int count = 0;
+    while (getline(file, line)) {
+        size_t pos = line.find(word);
+        while (pos != string::npos) {
+            count++;
+            pos = line.find(word, pos + 1);
+        }
+    }
+    cout << "Word found " << count << " times" << endl;
+    file.close();
+    return 0;
+}
+
+
+93. Exception Handling
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    try {
+        ifstream file("nonexistent.txt");
+        if (!file) {
+            throw runtime_error("File not found");
+        }
+    } catch (const exception& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
+    return 0;
+}
+
+
+94. Compressing and Decompressing
+
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+string compress(const string& str) {
+    string compressed;
+    char lastChar = str[0];
+    int count = 1;
+    for (size_t i = 1; i < str.length(); i++) {
+        if (str[i] == lastChar) {
+            count++;
+        } else {
+            compressed += lastChar + to_string(count);
+            lastChar = str[i];
+            count = 1;
+        }
+    }
+    compressed += lastChar + to_string(count);
+    return compressed;
+}
+
+string decompress(const string& str) {
+    string decompressed;
+    for (size_t i = 0; i < str.length(); i += 2) {
+        char ch = str[i];
+        int count = stoi(str.substr(i + 1, 1));
+        decompressed.insert(decompressed.end(), count, ch);
+    }
+    return decompressed;
+}
+
+int main() {
+    string original = "AAABBBCCC";
+    string compressedStr = compress(original);
+    cout << "Compressed: " << compressedStr << endl;
+    string decompressedStr = decompress(compressedStr);
+    cout << "Decompressed: " << decompressedStr << endl;
+    return 0;
+}
+
+
+95. Merging Files
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream mergedFile("merged.txt");
+    for (int i = 1; i <= 3; i++) {
+        ifstream file("file" + to_string(i) + ".txt");
+        mergedFile << file.rdline(mergedFile);
+        file.close();
+    }
+    mergedFile.close();
+    return 0;
+}
+
+96. Reading Large Data Files using Memory-Mapped Files
+This example uses the POSIX mmap function for memory mapping. Note that memory-mapped file implementation can vary depending on the operating system.
+
+
+#include <iostream>
+#include <fstream>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main() {
+    int fd = open("largefile.txt", O_RDONLY);
+    if (fd == -1) {
+        std::cerr << "Error opening file" << std::endl;
+        return 1;
+    }
+
+    struct stat sb;
+    if (fstat(fd, &sb) == -1) {
+        std::cerr << "Error getting file stats" << std::endl;
+        return 1;
+    }
+
+    void* mapped = mmap(NULL, sb.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+    if (mapped == MAP_FAILED) {
+        std::cerr << "Error mapping file" << std::endl;
+        return 1;
+    }
+
+    char* data = static_cast<char*>(mapped);
+    std::cout << "File contents: " << std::string(data, sb.st_size) << std::endl;
+
+    if (munmap(mapped, sb.st_size) == -1) {
+        std::cerr << "Error unmapping file" << std::endl;
+        return 1;
+    }
+
+    close(fd);
+    return 0;
+}
+
+
+97. Basic Encryption and Decryption
+This example uses a simple XOR cipher for encryption and decryption.
+
+
+#include <iostream>
+#include <fstream>
+#include <string>
+
+std::string encrypt(const std::string& plaintext, char key) {
+    std::string ciphertext;
+    for (char c : plaintext) {
+        ciphertext += c ^ key;
+    }
+    return ciphertext;
+}
+
+std::string decrypt(const std::string& ciphertext, char key) {
+    return encrypt(ciphertext, key); // XOR is symmetric
+}
+
+int main() {
+    std::string plaintext = "Hello, World!";
+    char key = 'x';
+    std::string ciphertext = encrypt(plaintext, key);
+    std::cout << "Ciphertext: " << ciphertext << std::endl;
+    std::string decrypted = decrypt(ciphertext, key);
+    std::cout << "Decrypted: " << decrypted << std::endl;
+
+    // Write encrypted data to file
+    std::ofstream outFile("encrypted.txt", std::ios::binary);
+    outFile.write(ciphertext.c_str(), ciphertext.size());
+    outFile.close();
+
+    // Read and decrypt from file
+    std::ifstream inFile("encrypted.txt", std::ios::binary);
+    std::string fileContents((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+    std::string decryptedFromFile = decrypt(fileContents, key);
+    std::cout << "Decrypted from file: " << decryptedFromFile << std::endl;
+    inFile.close();
+
+    return 0;
+}
+
