@@ -1,5 +1,224 @@
-//QUESTRION 21
+1. Fundamental Difference: Procedural vs. Object-Oriented Programming
+Procedural Programming: Focuses on procedures or functions to operate on data.
+
+OOP: Organizes code into objects that combine data and behavior.
+
+Example:
+
+cpp
+Copy
+Edit
+// Procedural
+int balance = 1000;
+void withdraw(int amount) {
+    balance -= amount;
+}
+
+// OOP
+class BankAccount {
+    int balance;
+public:
+    BankAccount(int bal) : balance(bal) {}
+    void withdraw(int amount) { balance -= amount; }
+};
+2. Define Object-Oriented Programming (OOP)
+OOP is a programming paradigm that uses objects—instances of classes—to model real-world entities. It focuses on encapsulation, inheritance, polymorphism, and abstraction.
+
+3. Abstraction in OOP
+Abstraction hides complex implementation details and exposes only the essential features of an object.
+
+Importance: Simplifies usage and reduces complexity.
+
+Example: You can use a car (object) without knowing how the engine works internally.
+
+4. Benefits of OOP over Procedural Programming
+Better code organization through classes and objects
+
+Easier maintenance and debugging
+
+Promotes code reuse via inheritance
+
+Enhances scalability and modularity
+
+5. Real-world OOP Example
+Problem: Developing a banking system.
+
+Why OOP?
+
+You can model customers, accounts, and transactions as objects.
+
+Each class encapsulates its behavior and data.
+
+6. Four Key Principles of OOP
+Encapsulation: Bundling data and methods.
+
+Inheritance: Sharing behavior between classes.
+
+Polymorphism: Different objects respond differently to the same method.
+
+Abstraction: Hiding unnecessary details.
+
+7. Encapsulation
+Protects data by restricting access via access specifiers (private, public, etc.).
+
+Example:
+
+cpp
+Copy
+Edit
+class Student {
+private:
+    int age;
+public:
+    void setAge(int a) { age = a; }
+    int getAge() { return age; }
+};
+8. Inheritance
+Allows a class (child) to inherit properties/methods from another class (parent).
+
+Example:
+
+cpp
+Copy
+Edit
+class Animal {
+public:
+    void speak() { cout << "Animal speaks\n"; }
+};
+class Dog : public Animal {
+public:
+    void bark() { cout << "Dog barks\n"; }
+};
+9. Polymorphism
+Same function behaves differently for different objects.
+
+Function Overloading: Same function name, different parameters.
+
+cpp
+Copy
+Edit
+void print(int i);
+void print(double d);
+Function Overriding: Subclass redefines a base class method.
+
+cpp
+Copy
+Edit
+class Base {
+public:
+    virtual void show() { cout << "Base\n"; }
+};
+class Derived : public Base {
+public:
+    void show() override { cout << "Derived\n"; }
+};
+10. Overloading vs. Overriding
+Overloading: Same name, different parameters (compile-time).
+
+Overriding: Redefining a base class method in a derived class (runtime).
+
+11. Advantages of OOP
+Modular and structured code
+
+Reusability via inheritance
+
+Easier to maintain and scale
+
+12. Application Domains for OOP
+GUI applications
+
+Game development
+
+Simulation software
+
+Web and mobile app development
+
+13. Impact of OOP on Maintainability and Reusability
+Encapsulated modules make debugging easier.
+
+Inheritance promotes code reuse.
+
+Abstraction reduces interdependency.
+
+14. OOP in Large Systems
+Encourages modular development
+
+Facilitates teamwork via well-defined interfaces
+
+Promotes reuse and extensibility
+
+15. Benefits of OOP in Development
+Real-world modeling
+
+Easier debugging and testing
+
+Enhanced collaboration and scalability
+
+16. Basic Structure of a C++ Program
+cpp
+Copy
+Edit
 #include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!";
+    return 0;
+}
+Components: Headers, main() function, namespaces, and statements.
+
+17. Purpose of Namespaces in C++
+Avoid naming conflicts by organizing code into logical groups.
+
+cpp
+Copy
+Edit
+namespace A {
+    int value = 5;
+}
+namespace B {
+    int value = 10;
+}
+18. Identifiers in C++
+Names used for variables, functions, etc.
+
+Rules:
+
+Must start with a letter or underscore
+
+Can contain letters, digits, underscores
+
+Case-sensitive
+
+Cannot use C++ keywords
+
+19. Variables vs. Constants
+Variable: Value can change
+
+Constant: Value cannot change
+
+Declaration:
+
+cpp
+Copy
+Edit
+int x = 10;
+const int y = 20;
+20. Control Structures in C++
+Control flow using if, for, while, etc.
+
+Example:
+
+cpp
+Copy
+Edit
+for (int i = 0; i < 5; ++i) {
+    if (i % 2 == 0)
+        cout << i << " is even\n";
+    else
+        cout << i << " is odd\n";
+}
+21 #include <iostream>
 
 int main() {
     int intValue = 42;
