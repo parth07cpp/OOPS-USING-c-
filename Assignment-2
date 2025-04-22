@@ -1,4 +1,94 @@
-//ASSIGNMENT 2
+
+1. Purpose of main function
+The main function is the entry point of a C++ program.
+
+2. Significance of return type
+The return type of main indicates the program's exit status.
+
+3. Valid signatures of main
+int main() and int main(int argc, char* argv[])
+
+4. Function prototyping
+Function prototyping declares a function's signature before its definition.
+
+5. Declaring a function prototype
+int functionName(int param1, int param2);
+
+6. Using a function before prototyping
+The compiler may not know the function's signature.
+
+7. Declaration vs definition
+A declaration specifies the function's signature, while a definition provides the implementation.
+
+8. Calling a simple function
+functionName();
+
+9. Scope
+Scope refers to the region of the program where a variable or function is accessible.
+
+10. Call by reference
+Call by reference passes variables to functions by reference.
+
+11. Call by reference vs call by value
+Call by reference modifies the original variable, while call by value creates a copy.
+
+12. Example of call by reference
+
+void swap(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+
+13. Inline function
+An inline function is expanded in-line at the point of call.
+
+14. Performance improvement
+Inline functions reduce function call overhead.
+
+15. Syntax for declaring an inline function
+inline return-type functionName(parameters) { ... }
+
+16. Macros vs inline functions
+Macros are preprocessor directives, while inline functions are actual functions.
+
+17. Advantages and disadvantages
+Macros can be error-prone, while inline functions provide type safety.
+
+18. Example
+
+#define SQUARE(x) ((x) * (x))
+inline int square(int x) { return x * x; }
+
+
+19. Function overloading
+Function overloading allows multiple functions with the same name but different parameters.
+
+20. Compiler differentiation
+The compiler differentiates based on the number and types of parameters.
+
+21. Example of overloaded functions
+
+void print(int x) { cout << x; }
+void print(double x) { cout << x; }
+
+
+22. Default arguments
+Default arguments allow functions to have optional parameters.
+
+23. Specifying default arguments
+void functionName(int x = 5);
+
+24. Rules for default arguments
+Default arguments must be specified in the function declaration.
+
+25. Example of function with default arguments
+
+void greet(string name = "World") {
+    cout << "Hello, " << name << "!";
+}
+
 26. Hello World
 
 #include <iostream>
